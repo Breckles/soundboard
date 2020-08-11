@@ -1,0 +1,19 @@
+{
+  "name": "soundboard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lite-server": "lite-server",
+    "tsc-watch": "tsc -w",
+    "sass-watch": "sass --watch ./src/styles:./dist/styles",
+    "start": "npm-run-all -p tsc-watch sass-watch lite-server"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "lite-server": "^2.5.4",
+    "npm-run-all": "^4.1.5"
+  }
+}
