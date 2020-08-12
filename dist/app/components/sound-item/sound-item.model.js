@@ -1,9 +1,13 @@
 export class SoundItem {
-    constructor(_source, _speaker, _audioPath, _imagePath) {
+    constructor(_title, _source, _speaker, _audioPath, _imagePath) {
+        this._title = _title;
         this._source = _source;
         this._speaker = _speaker;
         this._audioPath = _audioPath;
         this._imagePath = _imagePath;
+    }
+    get title() {
+        return this._title;
     }
     get imagePath() {
         return this._imagePath;

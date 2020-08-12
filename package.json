@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lite-server": "lite-server",
     "tsc-watch": "tsc -w",
-    "sass-watch": "sass --watch ./src/styles:./dist/styles ./src/app/components/sound-item:./dist/app/components/sound-item",
+    "sass-watch": "sass --watch ./src/styles:./dist/styles ./src/app/components/sound-item:./dist/app/components/sound-item ./src/app/components/navbar:./dist/app/components/navbar",
     "start": "npm-run-all -p tsc-watch sass-watch lite-server"
   },
   "author": "",

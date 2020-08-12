@@ -5,6 +5,13 @@
   margin: 0;
 }
 
+:root {
+  --text-primary: #b6b6b6;
+  --text-secondary: #ececec;
+  --bg-primary: #23232e;
+  --bg-secondary: #141418;
+}
+
 html {
   font-size: 10px;
   background: white;
@@ -16,7 +23,29 @@ body {
   height: 100vh;
   margin: 0 auto;
   font-size: 1.6rem;
-  background: grey;
+  position: relative;
+}
+
+aside {
+  position: fixed;
+  left: 0;
+}
+
+nav-bar {
+  display: block;
+}
+
+#soundBoard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 0.5rem;
+  padding: 0.5rem;
+}
+
+@media screen and (max-width: 1100px) {
+  aside {
+    bottom: 0;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

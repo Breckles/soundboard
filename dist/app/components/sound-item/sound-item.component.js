@@ -6,9 +6,17 @@ export class SoundItemComponent extends HTMLElement {
         // Create component wrapper and set background image
         const soundItemWrapper = document.createElement('div');
         soundItemWrapper.classList.add('soundItem');
-        soundItemWrapper.style.backgroundImage = `url(${soundItem.imagePath})`;
+        // soundItemWrapper.style.backgroundImage = `url(${soundItem.imagePath})`;
+        const iconImage = document.createElement('img');
+        iconImage.classList.add('icon');
+        iconImage.setAttribute('src', soundItem.imagePath);
+        const title = document.createElement('h4');
+        title.classList.add('title');
+        title.textContent = `${soundItem.title}`;
         const backgroundOverlay = document.createElement('div');
         backgroundOverlay.classList.add('overlay');
+        const overlayImage = document.createElement('img');
+        overlayImage.setAttribute('src', '/src/assets/images/stop-circle.svg');
         // Create audio element and set src
         const audio = document.createElement('audio');
         audio.classList.add('audio');
@@ -24,7 +32,7 @@ export class SoundItemComponent extends HTMLElement {
             }
         });
         audio.addEventListener('play', () => {
-            backgroundOverlay.style.display = 'block';
+            backgroundOverlay.style.display = 'flex';
         });
         audio.addEventListener('pause', () => {
             backgroundOverlay.style.display = 'none';
@@ -35,7 +43,8 @@ export class SoundItemComponent extends HTMLElement {
         link.setAttribute('rel', 'stylesheet');
         link.setAttribute('href', '/dist/app/components/sound-item/sound-item.component.css');
         // Add elements to shadow
-        soundItemWrapper.append(audio, backgroundOverlay);
+        backgroundOverlay.append(overlayImage);
+        soundItemWrapper.append(audio, backgroundOverlay, iconImage, title);
         shadow.append(link, soundItemWrapper);
     }
 }
