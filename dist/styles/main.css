@@ -10,6 +10,7 @@
   --text-secondary: #ececec;
   --bg-primary: #23232e;
   --bg-secondary: #141418;
+  --nav-bar-height: 7rem;
 }
 
 html {
@@ -26,9 +27,11 @@ body {
   position: relative;
 }
 
-aside {
+nav-bar {
   position: fixed;
-  left: 0;
+  width: 100%;
+  height: var(--nav-bar-height);
+  top: calc(100% - var(--nav-bar-height));
 }
 
 nav-bar {
@@ -36,16 +39,14 @@ nav-bar {
 }
 
 #soundBoard {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   gap: 0.5rem;
   padding: 0.5rem;
-}
-
-@media screen and (max-width: 1100px) {
-  aside {
-    bottom: 0;
-  }
+  margin-bottom: var(--nav-bar-height);
+  right: 0;
+  transition: right 200ms linear;
 }
 
 /*# sourceMappingURL=main.css.map */

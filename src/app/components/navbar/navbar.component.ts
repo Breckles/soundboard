@@ -1,4 +1,7 @@
-class NavBarComponent extends HTMLElement {
+import { SoundItemManager } from '../../services/sound-item-manager.service';
+import { SoundItem } from '../sound-item/sound-item.model';
+
+export class NavBarComponent extends HTMLElement {
   constructor() {
     super();
 
@@ -14,55 +17,83 @@ class NavBarComponent extends HTMLElement {
     );
     shadow.append(stylesheet);
 
-    // Fetch template and append to shadow
-    const template = document.querySelector(
-      '#navbar-template'
-    ) as HTMLTemplateElement;
-    const templateContent = template.content;
+    // Define template and append to shadow
+    const template = document.createElement('template') as HTMLTemplateElement;
+    template.innerHTML = `
+      <nav class="navbar">
+        <ul class="navbar-nav">
+          <li class="logo">
+            <a>
+              <span class="logo-text">Logo</span>
+              <svg xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 448 512">
+                <path fill="currentColor"
+                      d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34zm192-34l-136-136c-9.4-9.4-24.6-9.4-33.9 0l-22.6 22.6c-9.4 9.4-9.4 24.6 0 33.9l96.4 96.4-96.4 96.4c-9.4 9.4-9.4 24.6 0 33.9l22.6 22.6c9.4 9.4 24.6 9.4 33.9 0l136-136c9.4-9.2 9.4-24.4 0-33.8z">
+                </path>
+              </svg>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"  
+              id="futuramaLink">
+              <img src="/src/assets/images/futurama_slurm_can.png"
+                  alt="A Futurama Slurm Can">
+              <span class="link-text">Futurama</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#"
+              class="nav-link"  
+              id="southParkLink">
+              <img src="/src/assets/images/south_park.png"
+                  alt="The South Park Logo">
+              <span class="link-text">South Park</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              id="arnoldLink">
+              <img src="/src/assets/images/arnold.png"
+                  alt="Arnold Schwarzenegger's Face ">
+              <span class="link-text">Arnold</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              id="allLink">
+              <img src="/src/assets/images/all.png"
+                  alt="A Question Mark ">
+              <span class="link-text">All</span>
+            </a>
+          </li>
+        </ul>
+      </nav>`;
 
-    shadow.append(templateContent.cloneNode(true));
+    shadow.append(template.content.cloneNode(true));
 
-    // // Create navbar
-    // const navbar = document.createElement('nav');
-    // navbar.setAttribute('id', 'navbar');
+    // Add event handlers for navigation
+    const futuramaLink = shadow.querySelector('#futuramaLink')!;
+    futuramaLink.addEventListener('click', () => {
+      SoundItemManager.changeLists('futurama');
+    });
 
-    // const navbarNav = document.createElement('ul');
-    // navbarNav.setAttribute('id', 'navbar-nav');
+    const southParkLink = shadow.querySelector('#southParkLink')!;
+    southParkLink.addEventListener('click', () => {
+      SoundItemManager.changeLists('south_park');
+    });
 
-    // // Create logo li
-    // const logo = document.createElement('li');
-    // logo.setAttribute('id', 'logo');
+    const arnoldLink = shadow.querySelector('#arnoldLink')!;
+    arnoldLink.addEventListener('click', () => {
+      SoundItemManager.changeLists('arnold');
+    });
 
-    // const logoAnchor = document.createElement('a');
-    // logoAnchor.setAttribute('href', '#');
-
-    // const logoText = document.createElement('span');
-    // logoText.setAttribute('id', 'logo-text');
-    // logoText.textContent = 'SoundBoardX';
-
-    // // Create svg logo (code obtained from FontAwesome angle-double-right)
-    // const logoSvg = document.createElementNS(
-    //   'http://www.w3.org/2000/svg',
-    //   'svg'
-    // ) as SVGSVGElement;
-    // logoSvg.setAttributeNS(
-    //   'http://www.w3.org/2000/svg',
-    //   'viewBox',
-    //   '0 0 448 512'
-    // );
-
-    // const svgPath = document.createElementNS(
-    //   'http://www.w3.org/2000/svg',
-    //   'path'
-    // );
-    // svgPath.setAttribute(
-    //   'd',
-    //   'M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34zm192-34l-136-136c-9.4-9.4-24.6-9.4-33.9 0l-22.6 22.6c-9.4 9.4-9.4 24.6 0 33.9l96.4 96.4-96.4 96.4c-9.4 9.4-9.4 24.6 0 33.9l22.6 22.6c9.4 9.4 24.6 9.4 33.9 0l136-136c9.4-9.2 9.4-24.4 0-33.8z'
-    // );
-
-    // logoSvg.append(svgPath);
-
-    // Populate logo li
+    const allLink = shadow.querySelector('#allLink')!;
+    allLink.addEventListener('click', () => {
+      SoundItemManager.changeLists('all');
+    });
   }
 }
 

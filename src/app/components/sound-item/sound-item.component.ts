@@ -1,4 +1,4 @@
-import { SoundItem } from './sound-item.model.js';
+import { SoundItem } from './sound-item.model';
 
 export class SoundItemComponent extends HTMLElement {
   constructor(soundItem: SoundItem) {
