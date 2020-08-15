@@ -26,7 +26,7 @@ export class SoundItemManager {
       '/src/assets/images/arnold.png'
     ),
     new SoundItem(
-      'Blackjack/Hookers',
+      'Blackjack / Hookers',
       'futurama',
       'bender',
       '/src/assets/audio/blackjack-and-hookers-the-great-and-powerful-trixie-futurama-mo1p-gojsqe.mp3',
@@ -40,7 +40,7 @@ export class SoundItemManager {
       '/src/assets/images/Fry.png'
     ),
     new SoundItem(
-      'Dooooooom',
+      'Doooom',
       'futurama',
       'morbo',
       '/src/assets/audio/futurama-morbo-doom.mp3',

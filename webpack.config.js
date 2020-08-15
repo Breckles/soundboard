@@ -1,6 +1,7 @@
 const path = require('path');
 
 module.exports = {
+  mode: 'development',
   entry: './src/app/main.ts',
   devtool: 'inline-source-map',
   module: {
@@ -9,6 +10,14 @@ module.exports = {
         test: /\.tsx?$/,
         use: 'ts-loader',
         exclude: /node_modules/,
+      },
+      {
+        test: /\.html$/i,
+        loader: 'html-loader',
+        exclude: /node_modules/,
+        options: {
+          esModule: true,
+        },
       },
     ],
   },

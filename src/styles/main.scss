@@ -1,3 +1,16 @@
+// Needs to be placed here because the sound item component uses this font, and
+// @font-face doesn't work in a shadow DOM
+@font-face {
+  font-family: 'orbitronlight';
+  src: url('/src/assets/fonts/orbitron-light-webfont.woff2') format('woff2'),
+    url('/src/assets/fonts/orbitron-light-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+//// General css setup
+
 *,
 *::before,
 *::after {
@@ -5,46 +18,64 @@
   margin: 0;
 }
 
+html {
+  font-size: 10px;
+}
+
+
+//// Define custom properties for the site css. These leak into the shadow DOM
+
 :root {
   --text-primary: #b6b6b6;
   --text-secondary: #ececec;
   --bg-primary: #23232e;
   --bg-secondary: #141418;
   --nav-bar-height: 7rem;
+  --soundBoard-grid-gap: 0.5rem;
 }
 
-html {
-  font-size: 10px;
-  background: white;
-}
+
+//// Spacing and Sizing //////////////////////
 
 body {
+  position: relative;
   width: 100vw;
   max-width: 960px;
-  height: 100vh;
   margin: 0 auto;
-  font-size: 1.6rem;
-  position: relative;
 }
 
 nav-bar {
   position: fixed;
+  top: calc(100% - var(--nav-bar-height));
   width: 100%;
   height: var(--nav-bar-height);
-  top: calc(100% - var(--nav-bar-height));
-}
-
-nav-bar {
-  display: block;
 }
 
 #soundBoard {
-  position: relative;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  gap: 0.5rem;
-  padding: 0.5rem;
-  margin-bottom: var(--nav-bar-height);
+  grid-auto-rows: 1fr;
+  gap: var(--soundBoard-grid-gap);
+  padding: var(--soundBoard-grid-gap);
+  margin-bottom: calc(var(--nav-bar-height));
+}
+
+#soundBoard sound-item {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+
+//// Aesthetics //////////////////////
+
+body {
+  font-size: 1.6rem;
+}
+
+#soundBoard {
+  // requires a declaration in order for the transition to work the first time
+  // navigation occurs
   right: 0;
   transition: right 200ms linear;
 }

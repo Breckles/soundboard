@@ -7,32 +7,28 @@ export class SoundItemComponent extends HTMLElement {
     // Create a shadow root
     const shadow = this.attachShadow({ mode: 'open' });
 
-    // Create component wrapper and set background image
-    const soundItemWrapper = document.createElement('div');
-    soundItemWrapper.classList.add('soundItem');
-    // soundItemWrapper.style.backgroundImage = `url(${soundItem.imagePath})`;
+    // Attach html template to shadow
+    const template = document.createElement('template') as HTMLTemplateElement;
+    template.innerHTML = require('./sound-item.component.html').default;
+    shadow.append(template.content.cloneNode(true));
 
-    const iconImage = document.createElement('img');
-    iconImage.classList.add('icon');
-    iconImage.setAttribute('src', soundItem.imagePath);
+    // Set proper audio content
+    const audio = shadow.querySelector('.audio') as HTMLAudioElement;
+    audio.src = soundItem.audioPath;
 
-    const title = document.createElement('h4');
-    title.classList.add('title');
+    // Set proper icon image
+    const iconImage = shadow.querySelector('.icon') as HTMLImageElement;
+    iconImage.src = soundItem.imagePath;
+
+    // Set proper title text
+    const title = shadow.querySelector('.title') as HTMLElement;
     title.textContent = `${soundItem.title}`;
-
-    const backgroundOverlay = document.createElement('div');
-    backgroundOverlay.classList.add('overlay');
-
-    const overlayImage = document.createElement('img');
-    overlayImage.setAttribute('src', '/src/assets/images/stop-circle.svg');
-
-    // Create audio element and set src
-    const audio = document.createElement('audio');
-    audio.classList.add('audio');
-    audio.setAttribute('src', soundItem.audioPath);
 
     // Set up event listeners ////////////////////
 
+    const soundItemWrapper = shadow.querySelector(
+      '.soundItem'
+    ) as HTMLDivElement;
     soundItemWrapper.addEventListener('click', () => {
       if (!audio.paused) {
         audio.pause();
@@ -42,27 +38,16 @@ export class SoundItemComponent extends HTMLElement {
       }
     });
 
+    // Make overlay show when audio is playing
+    const backgroundOverlay = shadow.querySelector(
+      '.overlay'
+    ) as HTMLDivElement;
     audio.addEventListener('play', () => {
       backgroundOverlay.style.display = 'flex';
     });
     audio.addEventListener('pause', () => {
       backgroundOverlay.style.display = 'none';
     });
-
-    /////////////////////////////////////////////
-
-    // Create a link to proper stylesheet
-    const link = document.createElement('link');
-    link.setAttribute('rel', 'stylesheet');
-    link.setAttribute(
-      'href',
-      '/dist/app/components/sound-item/sound-item.component.css'
-    );
-
-    // Add elements to shadow
-    backgroundOverlay.append(overlayImage);
-    soundItemWrapper.append(audio, backgroundOverlay, iconImage, title);
-    shadow.append(link, soundItemWrapper);
   }
 }
 

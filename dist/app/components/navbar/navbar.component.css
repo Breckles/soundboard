@@ -7,7 +7,6 @@
   gap: 2rem;
   background-color: var(--bg-primary);
   width: 100%;
-  transition: width 200ms ease;
 }
 
 .navbar-nav {
@@ -36,7 +35,7 @@
   display: block;
   color: var(--text-primary);
   text-decoration: none;
-  transition: all 450ms ease;
+  transition: color 450ms ease;
 }
 
 .nav-link img {

@@ -1,8 +1,18 @@
+@font-face {
+  font-family: "orbitronlight";
+  src: url("/src/assets/fonts/orbitron-light-webfont.woff2") format("woff2"), url("/src/assets/fonts/orbitron-light-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
 *,
 *::before,
 *::after {
   box-sizing: border-box;
   margin: 0;
+}
+
+html {
+  font-size: 10px;
 }
 
 :root {
@@ -11,40 +21,43 @@
   --bg-primary: #23232e;
   --bg-secondary: #141418;
   --nav-bar-height: 7rem;
-}
-
-html {
-  font-size: 10px;
-  background: white;
+  --soundBoard-grid-gap: 0.5rem;
 }
 
 body {
+  position: relative;
   width: 100vw;
   max-width: 960px;
-  height: 100vh;
   margin: 0 auto;
-  font-size: 1.6rem;
-  position: relative;
 }
 
 nav-bar {
   position: fixed;
+  top: calc(100% - var(--nav-bar-height));
   width: 100%;
   height: var(--nav-bar-height);
-  top: calc(100% - var(--nav-bar-height));
-}
-
-nav-bar {
-  display: block;
 }
 
 #soundBoard {
-  position: relative;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  gap: 0.5rem;
-  padding: 0.5rem;
-  margin-bottom: var(--nav-bar-height);
+  grid-auto-rows: 1fr;
+  gap: var(--soundBoard-grid-gap);
+  padding: var(--soundBoard-grid-gap);
+  margin-bottom: calc(var(--nav-bar-height));
+}
+
+#soundBoard sound-item {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+body {
+  font-size: 1.6rem;
+}
+
+#soundBoard {
   right: 0;
   transition: right 200ms linear;
 }
