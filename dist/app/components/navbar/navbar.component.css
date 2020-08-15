@@ -5,16 +5,14 @@
 .navbar {
   display: flex;
   gap: 2rem;
-  background-color: var(--bg-primary);
   width: 100%;
 }
 
 .navbar-nav {
-  list-style: none;
+  display: flex;
   width: 100%;
   padding: 0;
   margin: 0;
-  display: flex;
 }
 
 .nav-item:last-child {
@@ -25,17 +23,9 @@
   display: none;
 }
 
-.logo a {
-  text-decoration: none;
-  color: var(--text-secondary);
-}
-
 .nav-link {
-  padding: 0.5rem;
   display: block;
-  color: var(--text-primary);
-  text-decoration: none;
-  transition: color 450ms ease;
+  padding: 0.5rem;
 }
 
 .nav-link img {
@@ -44,6 +34,20 @@
 
 .link-text {
   display: none;
+}
+
+.navbar {
+  background-color: var(--bg-primary);
+}
+
+.navbar-nav {
+  list-style: none;
+}
+
+.nav-link {
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: color 450ms ease;
 }
 
 .nav-link:hover {
