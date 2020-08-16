@@ -31,3 +31,18 @@ const itemListSubscriptions = SoundItemManager.listChanged.subscribe(
     }, 300);
   }
 );
+
+//// Service Worker ///////////////////////
+
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker
+    .register('/dist/sw.bundle.js')
+    .then((reg) => {
+      // Registration Worked
+      console.log('Registration succeeded. Scope is ' + reg.scope);
+    })
+    .catch((error) => {
+      // Registration Failed
+      console.log('Registration failed with ' + error);
+    });
+}

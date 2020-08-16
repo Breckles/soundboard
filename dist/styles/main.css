@@ -45,12 +45,12 @@ nav-bar {
   gap: var(--soundBoard-grid-gap);
   padding: var(--soundBoard-grid-gap);
   margin-bottom: calc(var(--nav-bar-height));
+  position: relative;
 }
 
 #soundBoard sound-item {
   display: flex;
   flex-direction: column;
-  flex: 1;
 }
 
 body {

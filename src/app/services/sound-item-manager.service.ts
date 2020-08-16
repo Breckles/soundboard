@@ -107,43 +107,11 @@ export class SoundItemManager {
       newList = this.soundItems;
     } else {
       newList = this.soundItems.filter((item) => {
-        console.log(`item.source: ${item.source}`);
-        console.log(`source: ${source}`);
-        console.log(item.source === source);
-
         return item.source === source;
       });
-      // for (const item of SoundItemManager.soundItems) {
-      //   if (item.source === source) {
-      //     newList.push(item);
-      //   }
-      // }
     }
     console.log(newList);
     this.listChanged.next(newList);
-    // this.listChanged.next([
-    //   new SoundItem(
-    //     'Ask Questions',
-    //     'arnold',
-    //     'arnold',
-    //     '/src/assets/audio/ask-ques.mp3',
-    //     '/src/assets/images/arnold.png'
-    //   ),
-    //   new SoundItem(
-    //     'Cookie Down',
-    //     'arnold',
-    //     'arnold',
-    //     '/src/assets/audio/put-that-cookie-down-now-arnold-schwarzenegger.mp3',
-    //     '/src/assets/images/arnold.png'
-    //   ),
-    //   new SoundItem(
-    //     'Fuck You',
-    //     'arnold',
-    //     'arnold',
-    //     '/src/assets/audio/fuck-you-arnold.mp3',
-    //     '/src/assets/images/arnold.png'
-    //   ),
-    // ]);
   }
 
   public static get soundItems() {
