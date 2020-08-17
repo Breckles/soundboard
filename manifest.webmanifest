@@ -1,0 +1,35 @@
+{
+  "theme_color": "purple",
+  "background_color": "purple",
+  "display": "fullscreen",
+  "name": "SoundBoard",
+  "short_name": "SoBo",
+  "description": "A little fun with movie/TV quotes.",
+  "icons": [{
+      "src": "/src/assets/images/sound-41-48.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "/src/assets/images/sound-41-64.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    },
+    {
+      "src": "/src/assets/images/sound-41-128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "/src/assets/images/sound-41-256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "/src/assets/images/sound-41-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/"
+}

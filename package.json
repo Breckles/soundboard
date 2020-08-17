@@ -7,9 +7,12 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lite-server": "lite-server",
     "tsc-watch": "tsc -w",
+    "sass-no-watch": "sass ./src/styles:./dist/styles ./src/app/components/sound-item:./dist/app/components/sound-item ./src/app/components/navbar:./dist/app/components/navbar",
     "sass-watch": "sass --watch ./src/styles:./dist/styles ./src/app/components/sound-item:./dist/app/components/sound-item ./src/app/components/navbar:./dist/app/components/navbar",
-    "bundle": "webpack",
-    "start": "npm-run-all -p bundle sass-watch lite-server"
+    "webpack-dev": "webpack-dev-server --open --config webpack.dev.js",
+    "webpack-prod": "webpack --config webpack.prod.js",
+    "build": "npm-run-all webpack-prod sass-no-watch",
+    "start": "npm-run-all -p webpack-dev sass-watch lite-server"
   },
   "author": "",
   "license": "ISC",
@@ -21,7 +24,9 @@
     "ts-loader": "^8.0.2",
     "typescript": "^3.9.7",
     "webpack": "^4.44.1",
-    "webpack-cli": "^3.3.12"
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^5.1.1"
   },
   "dependencies": {
     "@types/service_worker_api": "0.0.9",

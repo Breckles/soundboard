@@ -1,12 +1,12 @@
 const path = require('path');
 
 module.exports = {
-  mode: 'development',
   entry: {
-    main: './src/app/main.ts',
-    sw: './src/app/sw.ts',
+    'dist/main': './src/app/main.ts',
+    './sw': './src/app/sw.ts',
+    // main: './src/app/main.ts',
+    // sw: './src/app/sw.ts',
   },
-  devtool: 'inline-source-map',
   module: {
     rules: [
       {
@@ -32,7 +32,7 @@ module.exports = {
   },
   output: {
     filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, './'),
+    // path: path.resolve(__dirname, './dist'),
   },
-  watch: true,
 };
