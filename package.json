@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "cypress:open": "cypress open",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lite-server": "lite-server",
     "tsc-watch": "tsc -w",
@@ -12,12 +13,13 @@
     "webpack-dev": "webpack-dev-server --open --config webpack.dev.js",
     "webpack-prod": "webpack --config webpack.prod.js",
     "build": "npm-run-all webpack-prod sass-no-watch",
-    "start": "npm-run-all -p webpack-dev sass-watch lite-server"
+    "start": "npm-run-all -p webpack-dev sass-watch"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^14.0.27",
+    "cypress": "^4.12.1",
     "html-loader": "^1.1.0",
     "lite-server": "^2.5.4",
     "npm-run-all": "^4.1.5",

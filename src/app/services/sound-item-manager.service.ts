@@ -110,7 +110,6 @@ export class SoundItemManager {
         return item.source === source;
       });
     }
-    console.log(newList);
     this.listChanged.next(newList);
   }
 

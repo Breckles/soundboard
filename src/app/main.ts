@@ -21,7 +21,7 @@ const itemListSubscriptions = SoundItemManager.listChanged.subscribe(
     setTimeout(() => {
       soundBoardRef.innerHTML = '';
       soundItems = newList;
-
+      console.table(soundItems);
       for (const item of soundItems) {
         const soundItemEl = new SoundItemComponent(item);
         soundBoardRef.appendChild(soundItemEl);
