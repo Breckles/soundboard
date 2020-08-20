@@ -1,3 +1,5 @@
+import { cacheName } from './shared/names';
+
 const requestURLs = [
   '/',
   '/index.html',
@@ -36,7 +38,7 @@ const requestURLs = [
 
 self.addEventListener('install', (event) => {
   (<ExtendableEvent>event).waitUntil(
-    caches.open('v1').then((cache) => {
+    caches.open(cacheName).then((cache) => {
       return cache.addAll(requestURLs).catch((error) => {
         console.log(error);
       });
