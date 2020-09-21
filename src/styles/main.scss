@@ -19,6 +19,9 @@
 }
 
 html {
+  max-width: 960px;
+  margin: 0 auto;
+
   font-size: 10px;
 }
 
@@ -39,7 +42,7 @@ html {
 
 body {
   position: relative;
-  width: 100vw;
+  width: 100%;
   max-width: 960px;
   margin: 0 auto;
 }
@@ -48,6 +51,7 @@ nav-bar {
   position: fixed;
   top: calc(100% - var(--nav-bar-height));
   width: 100%;
+  max-width: 960px;
   height: var(--nav-bar-height);
 }
 
