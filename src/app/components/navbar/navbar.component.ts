@@ -12,7 +12,7 @@ export class NavBarComponent extends HTMLElement {
     stylesheet.setAttribute('rel', 'stylesheet');
     stylesheet.setAttribute(
       'href',
-      '/dist/app/components/navbar/navbar.component.css'
+      '/app/components/navbar/navbar.component.css'
     );
     shadow.append(stylesheet);
 
