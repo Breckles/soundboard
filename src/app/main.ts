@@ -35,7 +35,7 @@ const itemListSubscriptions = SoundItemManager.listChanged.subscribe(
 
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker
-    .register('/sw.bundle.js')
+    .register('./sw.bundle.js')
     .then((reg) => {
       // Registration Worked
       console.log('Registration succeeded. Scope is ' + reg.scope);
